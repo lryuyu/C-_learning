@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <list>
+#include <algorithm>
+using namespace std;
+
+class Solution
+{
+public:
+    bool isLetter(char ch)
+    {
+        if(ch >= 'a' && ch <= 'z')
+            return true;
+        if (ch >= 'A' && ch <= 'z')
+            return true;
+        return false;
+        
+    }
+    string reverseOnlyLetters(string S){
+        if (S.empty())
+            return S;
+
+        size_t begin = 0, end = S.size()-1;
+        while(begin < end)
+        {
+            while(begin < end && !isLetter(S[begin]))
+                ++begin;
+            while (begin < end && !isLetter(S[end]))
+                --end;
+            swap(S[begin],S[end]);
+            ++begin;
+            --end;
+        }
+        return S;
+        
+    }
+
+};
+
+int main()
+{
+    Solution();
+    return 0;
+    
+}
