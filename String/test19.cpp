@@ -4,6 +4,7 @@ using namespace std;
 #include "string.h"
 
 namespace bit
+const size_t string::npos = -1;
 {
 void test1(){
     bit::string s1("hello word");
@@ -52,6 +53,23 @@ void test1(){
     }
         cout << endl;
 }
+}
+
+void test2(){
+    
+    bit::string s1("hello world");
+    cout << s1.c_str()<<endl;
+
+    s1.push_back('x');
+    cout << s1.c_str()<<endl;
+
+    s1.append("yyyyy")
+    cout << s1.c_str()<<endl;
+}
+
+void test3(){
+    bit::string s1("hello world");
+
 }
 int main()
 {

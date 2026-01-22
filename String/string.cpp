@@ -61,18 +61,56 @@ namespace bit
         //reserver，动态容器，预占内存（请求保留空间）
         void string::reserve(size_t n)
         {
+            if(n > _capacity)
+            {
+                char* tmp = new char[n+1];
+                strcpy(tmp,_str);
+                delete[] _str;
+
+                _str = tmp;
+                _capacity = n;
+            }
 
         }
         //push_back是容器，可以扩容（核心是向容器末尾追加单个元素）
         void string::push_back(char ch)
         {
-
+            if (_size == _capacity)
+            {
+                size_t newcapacity = _capacity == 0?4: _capacity * 2;
+                reserve(newcapacity);
+            }
+            _str[_size] = ch;
+            _str[_size + 1] = '\0';
+            ++_size;
         }
         //核心作用是「将字符串 / 字符序列追加到当前字符串的末尾」
         //push_back() 的 “升级版”——push_back 只能加单个字符，而 append 能加整段字符串、字符数组甚至指定数量的重复字符。
         void string::append(const char* str)
         {
-            
+            size_t len = strlen(str);
+            if(_size + len > _capacity)
+            {
+                reserve(_size + len);
+            }
+            strcpy(_str+_size,str);
+            _size += len;
         }
+
+        void insert(size_t pos,char ch)
+        {
+
+        }
+
+        void insert(size_t pos, const char* str)
+        {
+
+        }
+
+        void erase(size_t pos,size_t len)
+        {
+
+        }
+
     }
 }

@@ -25,11 +25,28 @@ namespace bit
 
         void push_back(char ch);
         void append(const char* str);
+
+        string& operator+=(char ch);
+        string& operator+=(const char* str);
+
+        //在指定位置插入单个字符；
+        void insert(size_t pos,char ch);
+
+        //在指定位置插入整段字符串；
+        void insert(size_t pos,const char* str);
+
+        //从指定位置删除指定长度的字符（默认删到末尾）。
+        void erase(size_t pos,size_t len = npos);
         
 
     private:
         char* _str;
         size_t _size;
         size_t _capacity;
+
+        //既是是声明也是定义，特例
+        const static size_t npos = -1;
+    
     };
+    
 }
