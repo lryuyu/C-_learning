@@ -69,7 +69,8 @@ void test2(){
 
 void test3(){
     bit::string s1("hello world");
-
+    s1.insert(5,'x');
+    cout << s1.c_str() << endl;
 }
 int main()
 {

@@ -97,17 +97,51 @@ namespace bit
             _size += len;
         }
 
-        void insert(size_t pos,char ch)
+        void string::insert(size_t pos,char ch)
         {
+            if (_size == _capacity)
+            {
+                size_t newcapacity = _capacity == 0?4: _capacity * 2;
+                reserve(newcapacity);
+            }
 
+            int end = _size;
+            while(end >= (int)pos){
+                _str[end + 1] = _str[end];
+                --end;
+            }
+
+            // size_t end = _size + 1;
+            // while(end > pos)
+            // {
+            //     _str[end] = _str[end-1];
+            //     --end;
+            // }
+
+            _str[pos] = ch;
+            ++_size;
         }
 
-        void insert(size_t pos, const char* str)
+        void string::insert(size_t pos, const char* str)
         {
+            assert (pos<=_size);
+            size_t len = strlen(str);
+            if (_size + len >_capcity)
+            {
+                reserver(_size + len);
+            }
 
+            int end = _size;
+            while (end>=pos)
+            {
+                _str[end + len] = _str[end];
+                --end;
+            }
+            
+            
         }
 
-        void erase(size_t pos,size_t len)
+        void string::erase(size_t pos,size_t len)
         {
 
         }
