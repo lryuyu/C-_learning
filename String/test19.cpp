@@ -72,11 +72,25 @@ void test3(){
     s1.insert(5,'x');
     cout << s1.c_str() << endl;
 }
+
+void test4(){
+    bit::string s1("hello word");
+    cout << s1.find('o') << endl;
+}
+
+void test5(){
+    bit::string s1("hello word");
+    bit::string s2(s1);
+    cout << s1.c_str() << endl;
+    cout << s2.c_str() << endl;
+}
+
+
 int main()
 {
-    bit::test1();
+    bit::test5();
 
-    cout << typeid(std::string::iterator).name() << endl;
+    // cout << typeid(std::string::iterator).name() << endl;
 
     return 0;
     

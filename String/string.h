@@ -17,6 +17,11 @@ namespace bit
         const_iterator begin() const;
         const_iterator end() const;    
 
+        //string()
+        string(const char* str = "");
+        string(const string& s);
+        ~string();
+
         string(const char* str);
         ~string();
         const char* c_str() const;
