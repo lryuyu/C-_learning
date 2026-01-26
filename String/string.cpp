@@ -32,12 +32,20 @@ namespace bit
             strcpy(_str,str);
         }
 
+        //s2(s1)
+        // string::string(const string& s)
+        // {
+        //     _str = new cha[s._capacity + 1];
+        //     strcpy(_str,s._str);
+        //     _size = s._size;
+        //     _capacity = s._capacity;
+        // }
+
+        //现代写法
         string::string(const string& s)
         {
-            _str = new cha[s._capacity + 1];
-            strcpy(_str,s._str);
-            _size = s._size;
-            _capacity = s._capacity;
+           string tmp(s._str);
+           swap(tmp);
         }
 
         string::~string()
@@ -192,6 +200,78 @@ namespace bit
         {
             const char* p = strstr(_str+pos,sub);
             return p - _str;
+        }
+
+        void string::swap(string& s)
+        {
+            std::swap(_str,s._str);
+            std::swap(_size,s._size);
+            std::swap(_capacity,s._capacity);
+        }
+
+        string substr(size_t pos,size_t len)
+        {
+            //len大于后面剩余字符，有多少取多少
+            if (len > _size - pos)
+            {
+                string sub(_str + pos);
+                return sub;
+            }
+            else
+            {
+                string sub;
+                sub.reserve(len);
+                for (size_t i = 0; i < len; i++)
+                {
+                    /* code */
+                }
+                
+            }
+            
+        }
+
+        void string::clear()
+        {
+            _str[0] = '\0';
+            _size = 0;
+        }
+
+        istream& operator>> (ostream& os ,string& str)
+        {
+            _str.clear();
+            char buff[128];
+            //流提取
+            char ch = is.get();
+            while (ch != ' ' && ch != '\n')
+            {
+                buff[i++] = ch;
+                if (i==127)
+                {
+                    buff[i] = '\0';
+                    str += buff;
+                    i==0;
+                }
+                
+                ch = is.get();
+            }
+            if (i != 0)
+            {
+                buff[i] = '\0';
+            }
+            
+            
+            return is;
+        }
+
+        ostream& operator<< (ostream& os ,string& str)
+        {
+            //流插入
+            for (size_t i = 0; i < str.size(); i++)
+            {
+                os << str[i];
+            }
+            
+            return os;
         }
 
     }

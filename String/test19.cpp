@@ -85,6 +85,13 @@ void test5(){
     cout << s2.c_str() << endl;
 }
 
+void test6(){
+    bit::string s1("hello word");
+    bit::string s2(s1);
+    cout << s1 << endl;
+    cout << s2 << endl;
+}
+
 
 int main()
 {

@@ -42,6 +42,8 @@ namespace bit
 
         //从指定位置删除指定长度的字符（默认删到末尾）。
         void erase(size_t pos,size_t len = npos);
+
+        void clear();
         
 
     private:
