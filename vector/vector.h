@@ -87,14 +87,62 @@ namespace bit
 
         void push_back(const T& x)
         {
+            // if (_finish == _end_of_storage)
+            // {
+            //     size_t newcapacity = capacity() == 0 ? 4 : capacity() * 2;
+            //     reserve(newcapacity);
+            // }
+
+            // *_finish = x;
+            // ++_finish;
+
+            insert(end(),x);
+            
+        }
+
+        void pop_back()
+        {
+            assert(size() > 0);
+            --_finish;
+        }
+
+        void insert(iterator pos , const T& x)
+        {
             if (_finish == _end_of_storage)
             {
+                size_t len = pos - _start;
+
                 size_t newcapacity = capacity() == 0 ? 4 : capacity() * 2;
                 reserve(newcapacity);
+
+                pos = _start + len;
             }
 
-            *_finish = x;
+            iterator end = _finish - 1;
+            while (end >= pos)
+            {
+                *(end + 1) = *end;
+                --end;
+            }
+            *pos = x;
             ++_finish;
+            
+            
+        }
+
+        void erase(iterator pos)
+        {
+            assert(pos >= _start);
+            assert(pos <= _finish);
+
+            iterator it = pos + 1;
+            while (it != _finish)
+            {
+                *(it - 1) = *it;
+                ++it;
+            }
+
+            --_finish;
             
         }
 
@@ -125,9 +173,63 @@ namespace bit
             cout << *it << " ";
         }
         cout << endl;
-
-
-        
         
     };
+     void test_vector2()
+        {
+            bit::vector<int> v1;
+            v1.push_back(1);
+            v1.push_back(2);
+            v1.push_back(3);
+            v1.push_back(4);
+            v1.push_back(5);
+            for (auto e : v1)
+            {
+                cout << e << " ";
+            }
+            cout << endl;
+
+            //扩容
+            v1.insert(v1.begin(),0);
+            for (auto e : v1)
+            {
+                cout << e << " ";
+            }
+            cout << endl;
+            
+            v1.erase(v1.begin());
+            for (auto e : v1)
+            {
+                cout << e << " ";
+            }
+            cout << endl;
+
+            v1.insert(v1.begin() + 2 ,20);
+            for (auto e : v1)
+            {
+                cout << e << " ";
+            }
+            cout << endl;
+
+            int x;
+            cin >> x;
+
+            std::vector<int>::iterator it = find(v1.begin(), v1.end(), x);
+            if (it != v1.end())
+            {
+                //insert以后pos这个实参会不会失效? 可能会
+                it = v1.insert(it,10000);
+
+                //建议失效后的迭代器不要访问，除非更新一下
+                cout << *it << endl;
+            }
+            for (auto e : v1)
+            {
+                cout << e << " ";
+            }
+            cout << endl;
+            
+
+
+        };
 }

@@ -7,6 +7,6 @@ using namespace std;
 
 int main()
 {
-    bit::test_vector1();
+    bit::test_vector2();
     return 0;
 }
