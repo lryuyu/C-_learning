@@ -24,5 +24,23 @@
     <ClCompile Include="Practice1.cpp">
       <Filter>Practice</Filter>
     </ClCompile>
+    <ClCompile Include="Practice2.cpp">
+      <Filter>Practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice3.cpp">
+      <Filter>Practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice4.cpp">
+      <Filter>Practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice5.cpp">
+      <Filter>Practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice6.cpp">
+      <Filter>Practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice7.cpp">
+      <Filter>Practice</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
