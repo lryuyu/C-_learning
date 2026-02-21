@@ -1,4 +1,21 @@
-﻿  Practice1.cpp
+﻿  Practice6.cpp
+D:\C++\test_C++\Practice6.cpp(28,7): error C2601: “Addltem”: 本地函数定义是非法的
+D:\C++\test_C++\Practice6.cpp(42,8): error C2601: “MoveAdd”: 本地函数定义是非法的
+D:\C++\test_C++\Practice6.cpp(46,4): error C2146: 语法错误: 缺少“;”(在标识符“j”的前面)
+D:\C++\test_C++\Practice6.cpp(50,17): error C3861: “Addltem”: 找不到标识符
+  Practice7.cpp
+D:\C++\test_C++\Practice7.cpp(10,18): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\C++\test_C++\Practice7.cpp(11,28): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
   test_C++.cpp
+D:\C++\test_C++\Practice7.cpp(10,18): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“test_C++.cpp”)
+  
+D:\C++\test_C++\Practice7.cpp(11,28): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“test_C++.cpp”)
+  
+D:\C++\test_C++\test_C++.cpp(8,5): error C2084: 函数“int main(void)”已有主体
+      D:\C++\test_C++\Practice7.cpp(14,5):
+      参见“main”的前一个定义
+  
+D:\C++\test_C++\test_C++.cpp(27,5): warning C4551: 缺少参数列表的函数调用
   正在生成代码...
-  test_C++.vcxproj -> D:\C++\test_C++\x64\Debug\test_C++.exe
